@@ -1,0 +1,25 @@
+<div>  
+    <label>
+    </label>
+    <button class="badge" (click)="getUsers()">showAll</button>
+    <button class="badge" (click)="clear()">clear</button>
+</div>
+
+<ul class="users">
+    <li *ngFor='let user of post?.posts' (click)="onSelect(user)">
+        <!-- <a routerLink="/detail/{{user.c_id}}"></a> -->
+        <span>{{user.c_id}}</span>
+    </li>
+</ul>
+
+<div *ngIf="selectedUser">
+    <h2>{{selectedUser.id}} Details</h2>
+    <div><span>id: </span>{{selectedUser.c_id}}</div>
+    <div>
+        <label>name: 
+            <input [(ngModel)]="selectedUser.c_name" placeholder="name"/>
+            <button class="badge" (click)="updateUser()">fix</button>
+            <button class="delete" (click)="deleteUser()">X</button>
+        </label>
+    </div>
+</div>
